@@ -1,0 +1,23 @@
+.body{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height: 100vh;
+}
+
+.right {
+  background-image: url("../photo-1509062522246-3755977927d7.jpeg");
+  background-repeat: no-repeat;
+}
+
+body {
+  background-color: honeydew;
+}
+
+@media(max-width: 600px){
+  .body{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .right{
+    display: none;
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload | cloud storage management</title>
+  <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+</head>
+
+<body>
+  <div class="container-fluid bg-light d-flex p-3 justify-content-between">
+    <div class="logo">
+      <img src="/g,g.png" width="70px" height="70px" class="rounded-pill">
+    </div>
+    <div class="navs d-flex align-items-center">
+      <form action="/dashboard/<%= name._id %>" method="get">
+        <button class="btn btn-outline-danger">Back <i class="fas fa-arrow-left"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <form action="/uploads" method="post" class="mt-5 border p-3" enctype="multipart/form-data">
+      <div class="form-group mt-2">
+        <input type="text" value="<%= name.matnumber %>" name="matnumber" class="form-control" readonly>
+      </div>
+      <div class="form-group mt-2">
+        <input type="text" placeholder="title" name="title" class="form-control">
+      </div>
+      <div class="form-group mt-2">
+        <input type="file" name="name" class="form-control">
+      </div>
+      <div class="form-group mt-2">
+        <input type="submit" value="upload" class="btn btn-success">
+      </div>
+  </div>
+  </form>
+  <!-- trade mark -->
+  <div class="footer mt-5 text-center">
+    <h6>Powered by Hi-Tech</h6>
+    <p>&copy; 2022</p>
+  </div>
+</body>
+
+</html>

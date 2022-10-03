@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Cloud</title>
+  <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+
+</head>
+
+<body>
+  <div class="container-fluid bg-light d-flex p-3 justify-content-between">
+    <div class="logo">
+      <img src="/g,g.png" width="70px" height="70px" class="rounded-pill">
+    </div>
+    <div class="navs d-flex align-items-center">
+      <a id="upload" class="btn btn-outline-primary" href="/upload">Upload <i class="fas fa-plus"></i></a>
+      <form action="/logout" method="get">
+        <button class="btn btn-outline-danger">Logout <i class="fas fa-power-off"></i></button>
+      </form>
+    </div>
+  </div>
+  <div>
+    <span class="p-5 h-100">
+      Welcome: <%= name.matnumber %>
+    </span>
+  </div>
+  <% if(name.storage.length> 0) {%>
+    <div>
+      <main>
+
+        <div class="album py-5 bg-light">
+          <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <% name.storage.forEach(d=> { %>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img src="/images/<%= d.image %>" />
+
+                    <div class="card-body">
+                      <p class="card-text">
+                        <%= d.title %>
+                      </p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <form action="/delete/<%= name._id %>/<%= d._id %>" method="post">
+                            <button type="submit" class="btn btn-sm btn-outline-secondary"><i
+                                class="fas fa-trash"></i></button>
+                          </form>
+                          <button type="button" class="btn btn-sm btn-outline-secondary"><i
+                              class="fas fa-edit"></i></button>
+                          <button type="button" class="btn btn-sm btn-outline-secondary"><i
+                              class="fas fa-download"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%})%>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <%} else {%>
+        <div class="container d-flex w-50 justify-content-center align-items-center flex-column" style="height: 100vh">
+          </p>
+          <h5>To upload a file <i class="fas fa-file"></i></h5>
+          <a id="upload" class="rounded-pill mt-5 btn btn-outline-dark" href="/upload">Upload <i
+              class="fas fa-plus"></i></a>
+
+        </div>
+        <!-- trade mark -->
+        <div class="footer mt-5 text-center">
+          <h6>Powered by Hi-Tech</h6>
+          <p>&copy; 2022</p>
+        </div>
+        <%}%>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Cloud Storage</title>
+  <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/fontawesome/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid d-flex justify-content-between p-4 align-items-center bg-light">
+    <div class="logo">
+      <img src="/g,g.png" width="70px" height="70px" class="rounded-pill">
+    </div>
+    <div class="navs d-flex w-50 justify-content-between">
+      <p>
+        <a href="/">Home</a>
+      </p>
+      <p>
+        <a href="/create">Sign up</a>
+      </p>
+    </div>
+  </div>
+  <% if(error) {%>
+    <div class="container w-100 my-5 shadow bg-light p-5 w-100">
+      <div>
+        <h1>Login</h1>
+      </div>
+      <div class="alert alert-danger d-flex justify-content-between">
+        <p>
+          <%= error %>
+        </p>
+        <!-- <span><i class="fas fa-times"></i></span> -->
+      </div>
+      <form action="/auth" method="post">
+        <div class="form-group mt-4">
+          <input type="text" name="matnumber" placeholder="mat number" class="form-control">
+        </div>
+
+        <div class="form-group mt-4">
+          <input name="password" type="password" placeholder="password" class="form-control">
+        </div>
+
+        <div class="form-group mt-4">
+          <button type="submit" class="btn btn-success w-100">Login</button>
+        </div>
+
+        <!-- trade mark -->
+        <div class="footer mt-5 text-center">
+          <h6>Powered by Hi-Tech</h6>
+          <p>&copy; 2022</p>
+        </div>
+      </form>
+    </div>
+    <%} else {%>
+      <div class="container my-5 shadow bg-light p-5 w-100">
+        <div>
+          <h1>Login</h1>
+        </div>
+
+        <form action="/auth" method="post">
+          <div class="form-group mt-4">
+            <input type="text" name="matnumber" placeholder="mat number" class="form-control">
+          </div>
+
+          <div class="form-group mt-4">
+            <input name="password" type="password" placeholder="password" class="form-control">
+          </div>
+
+          <div class="form-group mt-4">
+            <button type="submit" class="btn btn-success w-100">Login</button>
+          </div>
+
+          <!-- trade mark -->
+          <div class="footer mt-5 text-center">
+            <h6>Powered by Hi-Tech</h6>
+            <p>&copy; 2022</p>
+          </div>
+        </form>
+      </div>
+      <%}%>
+</body>
+
+</html>
